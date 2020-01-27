@@ -31,4 +31,8 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 library(tidyverse)
 
+# Plots with ggplot2
+
+We are going to make plots in R using the ggplot2 package from the tidyverse.
+
 

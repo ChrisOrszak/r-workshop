@@ -58,3 +58,32 @@ install.packages("here")
 
 install.packages("tidyverse")
 
+
+# california national parks data
+```{r read-data}
+
+library(tidyverse)
+library(here)
+library(runxl)
+
+ci_np <- read_excel(here("data" , "ci_np.xlsx"))
+
+ca_np <- read_csv(here("data" , "ca_np.csv"))
+
+names(ci_np)
+
+
+```
+
+
+## Make my own first graph 
+
+We're going to make a line plot of year (x) vs visitation (y)in gg plot.
+
+```{r}
+install.packages("ggplot")
+library(ggplot2)
+ggplot(data = ci_np, aes(x = year, y = visitors)) +
+  geom_point()
+```
+

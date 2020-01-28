@@ -1,0 +1,59 @@
+---
+title: "Plotting"
+author: "Chris"
+date: "1/27/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tidyverse)
+library(here)
+library(readxl)
+
+
+ca_np <- read_csv(here("data", "ca_np.csv"))
+ci_np <- read_excel(here("data", "ci_np.xlsx"))
+```
+
+
+```{r}
+gg_base + 
+  geom_point(
+    aes(size = visitors, color = "year")
+  )
+```
+```{r}
+gg_base + geom_point(aes(size = visitors, color = year))
+```
+
+```{r}
+```
+
+
+```{r}
+gg_base + 
+  geom_area() +
+  theme_classic()
+```
+
+```{r}
+ggplot(data = ca_np, aes(x = year, y = visitors, group = park_name, color = park_name)) +
+  geom_line() 
+
+```
+
+
+```{r}
+my_np_graph <- ggplot(data = ca_np, aes(x = year, y = visitors)) +
+  geom_point(aes(color= park_name), show.legend = FALSE) +
+  facet_wrap(~park_name, scales = "free")
+```
+```{r}
+ggsave(plot = my_np_graph, here("figures", "np_graph.png"))
+```
+
+
+
